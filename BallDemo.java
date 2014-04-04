@@ -46,7 +46,10 @@ public class BallDemo
             int green = rnd.nextInt(256);
             int blue = rnd.nextInt(256);
             
-            ball = new BouncingBall(50, 50, radio, new Color(red,green,blue), ground, myCanvas);
+            int x = rnd.nextInt(240);
+            int y = rnd.nextInt(400);
+            
+            ball = new BouncingBall(x, y, radio, new Color(red,green,blue), ground, myCanvas);
             arrayBalls.add(ball);
             ball.draw();
         }
