@@ -62,10 +62,10 @@ public class BallDemo
             for(BouncingBall element : arrayBalls)
             {
                 element.move();
-            }
-            // stop once ball has travelled a certain distance on x axis
-            if(ball.getXPosition() >= 550) {
-                finished = true;
+                // stop once ball has travelled a certain distance on x axis
+                if(element.getXPosition() >= 550) {
+                    finished = true;
+                }
             }
         }
     }
