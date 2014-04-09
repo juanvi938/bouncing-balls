@@ -92,8 +92,8 @@ public class BallDemo
             int green = rnd.nextInt(256);
             int blue = rnd.nextInt(256);
             
-            int x = rnd.nextInt(550);
-            int y = rnd.nextInt(430);
+            int x = rnd.nextInt(550) + 10;
+            int y = rnd.nextInt(450) + 10;
             
             BoxBall bola = new BoxBall(x, y, 1, 1, radio, new Color(red,green,blue), ground, myCanvas);
             arrayBalls.add(bola);

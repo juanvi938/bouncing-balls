@@ -82,10 +82,10 @@ public class BoxBall
         xPosition += xMove;
 
         // check if it has hit the ground
-        if(xPosition > (560 - diameter) || xPosition < 10){
+        if(xPosition >= (560 - diameter) || xPosition <= 10){
             xMove = -xMove;
         }
-        if(yPosition > (460 - diameter) || yPosition < 10) {
+        if(yPosition >= (460 - diameter) || yPosition <= 10) {
             yMove = -yMove;
         }
 
