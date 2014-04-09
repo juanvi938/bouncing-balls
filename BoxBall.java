@@ -18,9 +18,6 @@ import java.awt.geom.*;
 
 public class BoxBall
 {
-    private static final int GRAVITY = 3;  // effect of gravity
-
-    private int ballDegradation = 2;
     private Ellipse2D.Double circle;
     private Color color;
     private int diameter;
@@ -29,6 +26,8 @@ public class BoxBall
     private final int groundPosition;      // y position of ground
     private Canvas canvas;
     private int ySpeed = 1;                // initial downward speed
+    private int xMove;
+    private int yMove;
 
     /**
      * Constructor for objects of class BoxBall
@@ -40,11 +39,13 @@ public class BoxBall
      * @param groundPos  the position of the ground (where the wall will bounce)
      * @param drawingCanvas  the canvas to draw this ball on
      */
-    public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor,
+    public BoxBall(int xPos, int yPos, int xMove, int yMove, int ballDiameter, Color ballColor,
                         int groundPos, Canvas drawingCanvas)
     {
         xPosition = xPos;
         yPosition = yPos;
+        this.xMove = xMove;
+        this.yMove = yMove;
         color = ballColor;
         diameter = ballDiameter;
         groundPosition = groundPos;
