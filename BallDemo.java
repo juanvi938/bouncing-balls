@@ -69,4 +69,43 @@ public class BallDemo
             }
         }
     }
+    
+    /**
+     * Método que crea un rectángulo dentro de el cual se crearán un número de bolas indicado por el parámetro.
+     * Después, esas bolas se mueven por el rectángulo rebotando en los bordes del rectángulo.
+     * @param numeroBolas: numero de bolas que se quieren crear.
+     */
+    public void boxBounce(int numeroBolas)
+    {
+        int ground = 450;
+        myCanvas.fillRectangle(10,10,550,450);
+        myCanvas.setVisible(true);
+        
+        ArrayList<BoxBall> arrayBalls = new ArrayList<>();
+        
+        for(int i = 0; i < numeroBolas; i++)
+        {
+            Random rnd = new Random();
+            int radio = rnd.nextInt(100);
+            
+            int red = rnd.nextInt(256);
+            int green = rnd.nextInt(256);
+            int blue = rnd.nextInt(256);
+            
+            int x = rnd.nextInt(550);
+            int y = rnd.nextInt(430);
+            
+            BoxBall bola = new BoxBall(x, y, 1, 1, radio, new Color(red,green,blue), ground, myCanvas);
+            arrayBalls.add(bola);
+            bola.draw();
+        }
+        boolean finished =  false;
+        while(!finished) {
+            myCanvas.wait(50);           // small delay
+            for(BoxBall element : arrayBalls)
+            {
+                element.move();
+            }
+        }
+    }
 }
