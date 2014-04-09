@@ -78,7 +78,10 @@ public class BallDemo
     public void boxBounce(int numeroBolas)
     {
         int ground = 450;
-        myCanvas.fillRectangle(10,10,550,450);
+        myCanvas.drawLine(10,10,10,450);    //Borde izquierdo del rectángulo.
+        myCanvas.drawLine(550,10,550,450);  //Borde derecho del rectángulo.
+        myCanvas.drawLine(10,10,550,10);    //Borde superior del rectángulo.
+        myCanvas.drawLine(10,450,550,450);  //Borde inferior del rectángulo.
         myCanvas.setVisible(true);
         
         ArrayList<BoxBall> arrayBalls = new ArrayList<>();
@@ -92,10 +95,17 @@ public class BallDemo
             int green = rnd.nextInt(256);
             int blue = rnd.nextInt(256);
             
-            int x = rnd.nextInt(550) + 10;
-            int y = rnd.nextInt(450) + 10;
+            int x = rnd.nextInt(500) + 15;
+            int y = rnd.nextInt(400) + 15;
             
-            BoxBall bola = new BoxBall(x, y, 1, 1, radio, new Color(red,green,blue), ground, myCanvas);
+            ArrayList<Integer> movimiento = new ArrayList<>();
+            movimiento.add(-1);
+            movimiento.add(1);
+            
+            int xMove = movimiento.get(rnd.nextInt(2)); 
+            int yMove = movimiento.get(rnd.nextInt(2));
+            
+            BoxBall bola = new BoxBall(x, y, xMove, yMove, radio, new Color(red,green,blue), ground, myCanvas);
             arrayBalls.add(bola);
             bola.draw();
         }
